@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türk Hukuku Hesaplama Araçları</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            400: '#829ab1',
+                            500: '#627d98',
+                            600: '#486581',
+                            700: '#334e68',
+                            800: '#243b53',
+                            900: '#102a43',
+                        },
+                        gold: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-gold-200 selection:text-gold-900">
+
+    <!-- Üst Menü / Header -->
+    <header class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-navy-900 text-gold-400 p-2.5 rounded-xl shadow-md">
+                    <i class="fa-solid fa-scale-balanced text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-navy-900 leading-tight">Türk Hukuku</h1>
+                    <p class="text-xs text-slate-500 font-medium">Hesaplama Araçları Portalı</p>
+                </div>
+            </div>
+            <div>
+                <button onclick="openModal('request-modal')" class="inline-flex items-center space-x-2 bg-navy-900 hover:bg-navy-800 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm hover:shadow active:scale-95">
+                    <i class="fa-solid fa-plus text-xs text-gold-400"></i>
+                    <span>Yeni Araç Öner</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Kahraman (Hero) Bölümü -->
+        <section class="relative bg-gradient-to-b from-navy-900 to-navy-800 text-white py-16 sm:py-20 overflow-hidden">
+            <!-- Arka Plan Süsleri -->
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 rounded-full bg-navy-700/20 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 rounded-full bg-gold-600/10 blur-3xl pointer-events-none"></div>
+
+            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gold-500/10 text-gold-400 border border-gold-500/20 mb-6">
+                    <i class="fa-solid fa-circle-dot animate-pulse"></i>
+                    <span>Hızlı, Doğru ve Güncel</span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-6">
+                    Hukuki Hesaplamalar Artık <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">Daha Kolay</span>
+                </h2>
+                <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Avukatlar, hukukçular ve vatandaşlar için hazırlanan bu rehber niteliğindeki portal üzerinden, dilediğiniz hesaplama aracına hızlıca ulaşabilir veya sık kullanılanları listenize kaydedebilirsiniz.
+                </p>
+
+                <!-- Canlı Arama Çubuğu -->
+                <div class="max-w-xl mx-auto relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-slate-400 group-focus-within:text-gold-500 transition-colors"></i>
+                    </div>
+                    <input type="text" id="tool-search" oninput="filterTools()" placeholder="Aramak istediğiniz aracı yazın... (Örn: Kıdem, Faiz)" 
+                        class="block w-full pl-11 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:bg-white focus:text-slate-900 transition-all shadow-lg text-sm sm:text-base">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sık Kullanılanlar / Favoriler Paneli -->
+        <section id="favorites-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 hidden">
+            <div class="bg-gold-50 border border-gold-200/60 rounded-3xl p-6 sm:p-8">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="text-gold-600 bg-gold-100 p-2 rounded-xl text-lg"><i class="fa-solid fa-star"></i></span>
+                    <h3 class="text-lg font-bold text-navy-900">Sık Kullandığınız Araçlar</h3>
+                </div>
+                <div id="favorites-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Dinamik olarak JS ile doldurulacak -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Araçlar ve Kategoriler -->
+        <section id="kategoriler" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-navy-900 tracking-tight">Kategorilere Göre Hesaplama Araçları</h3>
+                    <p class="text-slate-500 text-sm mt-1">İhtiyacınız olan hesaplama kategorisini seçerek hızlı erişim sağlayın.</p>
+                </div>
+                <!-- Kategori Filtre Butonları -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterCategory('all')" id="btn-all" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-navy-900 text-white shadow-sm transition-all">Hepsi</button>
+                <button onclick="filterCategory('is')" id="btn-is" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">İş Hukuku</button>
+                <button onclick="filterCategory('icra')" id="btn-icra" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">İcra & İflas</button>
+                <button onclick="filterCategory('finans')" id="btn-finans" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">Finans & Faiz</button>
+                <button onclick="filterCategory('genel')" id="btn-genel" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">Genel / Diğer</button>
+            </div>
+        </div>
+
+        <!-- Kartlar Grid -->
+        <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- İş Hukuku -->
+            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="kıdem tazminatı hesaplama">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </span>
+                        <button onclick="toggleFavorite('kidem-tazminati', 'Kıdem Tazminatı', 'https://justplayerx.github.io/Kidem_Tazminati_Hesapla/', 'is', 'fa-briefcase')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="kidem-tazminati">
+                            <i class="fa-solid fa-star text-lg"></i>
+                        </button>
+                    </div>
+                    <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Kıdem Tazminatı</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal şartlara uygun olarak sona eren personelin hak kazandığı kıdem tazminatı tutarını hizmet süresi ve brüt ücretine göre hesaplar.</p>
+                </div>
+                <a href="https://justplayerx.github.io/Kidem_Tazminati_Hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <span>Hemen Hesapla</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="ihbar tazminatı hesaplama">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-clock"></i>
+                        </span>
+                        <button onclick="toggleFavorite('ihbar-tazminati', 'İhbar Tazminatı', '#', 'is', 'fa-clock')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="ihbar-tazminati">
+                            <i class="fa-solid fa-star text-lg"></i>
+                        </button>
+                    </div>
+                    <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İhbar Tazminatı</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal bildirim sürelerine uyulmaksızın feshedilen işçi veya işverenin hak kazandığı ihbar tazminatını çalışma süresi ve brüt ücrete göre hesaplar.</p>
+                </div>
+                <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <span>Hemen Hesapla</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="yıllık izin ücreti hesaplama">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </span>
+                            <button onclick="toggleFavorite('yillik-izin', 'Yıllık İzin Ücreti', '#', 'is', 'fa-calendar-check')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="yillik-izin">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Yıllık İzin Ücreti</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Kullanılmayan yıllık izin günlerinin son brüt ücrete göre parasal karşılığını, yasal kesintileriyle birlikte hesaplar.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- İcra & İflas -->
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="icra" data-title="icra dosya kapak hesabı masraf">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </span>
+                            <button onclick="toggleFavorite('icra-kapak', 'İcra Dosya Kapak Hesabı', '#', 'icra', 'fa-folder-open')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="icra-kapak">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İcra Dosya Kapak Hesabı</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">İcra müdürlüğündeki dosya borcunun asıl alacak, faiz, harçlar, vekalet ücreti ve masraflar dâhil güncel toplamını çıkarır.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="icra" data-title="icra harçları masraf hesaplama">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-coins"></i>
+                            </span>
+                            <button onclick="toggleFavorite('icra-harclari', 'İcra Harçları & Masrafları', '#', 'icra', 'fa-coins')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="icra-harclari">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İcra Harçları & Masrafları</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Takip talebi açılış harçları, peşin harç, başvurma harcı ve posta masraflarını güncel tarifeye göre özetler.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Finans & Faiz -->
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="finans" data-title="yasal faiz temerrüt faizi hesaplama">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-percent"></i>
+                            </span>
+                            <button onclick="toggleFavorite('yasal-faiz', 'Yasal & Temerrüt Faizi', '#', 'finans', 'fa-percent')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="yasal-faiz">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Yasal & Temerrüt Faizi</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">3095 sayılı Kanun kapsamında uygulanan yasal faiz, ticari temerrüt faizi ve avans faizi oranlarını dönemsel hesaplar.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Genel / Diğer -->
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="asgari vekalet ücreti hesaplama avukat">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gavel"></i>
+                            </span>
+                            <button onclick="toggleFavorite('vekalet-ucreti', 'Asgari Vekalet Ücreti', '#', 'genel', 'fa-gavel')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="vekalet-ucreti">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Asgari Vekalet Ücreti</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Barolar Birliği'nin güncel Asgari Ücret Tarifesine (AAÜT) uygun nispî ve maktu avukatlık ücretlerini hesaplar.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="serbest meslek makbuzu smm hesaplama">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-receipt"></i>
+                            </span>
+                            <button onclick="toggleFavorite('smm-hesaplama', 'Serbest Meslek Makbuzu (SMM)', '#', 'genel', 'fa-receipt')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="smm-hesaplama">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Serbest Meslek Makbuzu (SMM)</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Serbest çalışan avukatların düzenleyeceği makbuzlar için tevkifat (stopaj) ve KDV tutarlarını netten brüte veya brütten nete hesaplar.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="arabuluculuk asgari ücret tarifesi hesaplama">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-handshake"></i>
+                            </span>
+                            <button onclick="toggleFavorite('arabuluculuk', 'Arabuluculuk Ücreti', '#', 'genel', 'fa-handshake')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="arabuluculuk">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Arabuluculuk Ücreti</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Adalet Bakanlığı Arabuluculuk Asgari Ücret Tarifesine göre, anlaşma konusu miktar üzerinden tarafların ödeyeceği payları hesaplar.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sonuç Bulunamadı Mesajı -->
+            <div id="no-results" class="hidden text-center py-20 bg-white border border-slate-200/80 rounded-3xl mt-6">
+                <span class="text-4xl text-slate-300 mb-4 inline-block"><i class="fa-solid fa-magnifying-glass-minus"></i></span>
+                <p class="text-slate-500 text-sm font-semibold">Aradığınız kriterlere uygun hesaplama aracı bulunamadı.</p>
+                <button onclick="resetFilters()" class="text-xs text-gold-600 font-bold underline mt-2 hover:text-gold-700">Aramayı Temizle</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Talep Öneri Modalı -->
+    <div id="request-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/65 backdrop-blur-sm hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 transform transition-transform duration-300 scale-95 p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                    <span class="text-gold-600 bg-gold-100 w-10 h-10 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-envelope"></i></span>
+                    <h4 class="text-lg font-bold text-navy-900">Yeni Araç Öner</h4>
+                </div>
+                <button onclick="closeModal('request-modal')" class="text-slate-400 hover:text-slate-600 p-1.5 hover:bg-slate-100 rounded-lg transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <div class="text-center py-2">
+                <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                    Portalımızda yer almasını istediğiniz yeni hesaplama araçlarını veya formül önerilerinizi bize e-posta yoluyla iletebilirsiniz.
+                </p>
+                
+                <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-4">
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">E-Posta Adresi</span>
+                    <a href="mailto:justplayerx@gmail.com?subject=Türk Hukuku Hesaplama Portalı - Araç Önerisi" class="text-base font-bold text-navy-900 hover:text-gold-600 transition-colors break-all">
+                        justplayerx@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bildirim Toast Yapısı -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- Alt Bilgi / Footer -->
+    <footer class="bg-navy-950 text-slate-400 py-12 border-t border-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-navy-900">
+                <div class="flex items-center space-x-3">
+                    <span class="text-gold-400 text-2xl"><i class="fa-solid fa-scale-balanced"></i></span>
+                    <span class="text-white font-bold text-base tracking-wide">Türk Hukuku Hesaplama Portalı</span>
+                </div>
+                <p class="text-xs text-center md:text-right max-w-md leading-relaxed text-slate-400">
+                    Sitedeki tüm hesaplama araçları bilgilendirme amaçlıdır. Nihai kararlarınızda resmi yargı kararları ve baro tarifeleri esas alınmalıdır.
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 text-xs gap-4">
+                <p>© 2026 Türk Hukuku Hesaplama Araçları. Tüm hakları saklıdır.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gold-400 transition-colors">Kullanım Koşulları</a>
+                    <a href="#" class="hover:text-gold-400 transition-colors">Gizlilik Politikası</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Favorileri LocalStorage'da Tutma
+        let favorites = JSON.parse(localStorage.getItem('legal_favorites')) || [];
+
+        // Sayfa yüklendiğinde favorileri çiz ve buton durumlarını güncelle
+        window.onload = function() {
+            renderFavorites();
+            updateFavButtonStates();
+        }
+
+        // Favoriye ekle/çıkar fonksiyonu
+        function toggleFavorite(id, title, url, category, iconClass) {
+            const index = favorites.findIndex(item => item.id === id);
+            if (index === -1) {
+                // Ekle
+                favorites.push({ id, title, url, category, iconClass });
+                showToast(`${title} favorilerinize eklendi.`, 'success');
+            } else {
+                // Çıkar
+                favorites.splice(index, 1);
+                showToast(`${title} favorilerinizden kaldırıldı.`, 'info');
+            }
+            localStorage.setItem('legal_favorites', JSON.stringify(favorites));
+            renderFavorites();
+            updateFavButtonStates();
+        }
+
+        // Favorileri Arayüze Çizme
+        function renderFavorites() {
+            const grid = document.getElementById('favorites-grid');
+            const section = document.getElementById('favorites-section');
+            grid.innerHTML = '';
+
+            if (favorites.length === 0) {
+                section.classList.add('hidden');
+                return;
+            }
+
+            section.classList.remove('hidden');
+            favorites.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "flex items-center justify-between p-4 bg-white border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-md transition-shadow";
+                card.innerHTML = `
+                    <div class="flex items-center space-x-3 overflow-hidden">
+                        <span class="w-9 h-9 rounded-xl bg-navy-50 text-navy-900 flex items-center justify-center flex-shrink-0 text-sm">
+                            <i class="fa-solid ${item.iconClass}"></i>
+                        </span>
+                        <div class="overflow-hidden">
+                            <h5 class="text-xs font-bold text-navy-900 truncate">${item.title}</h5>
+                            <span class="text-[10px] text-slate-400 capitalize">${item.category === 'is' ? 'İş Hukuku' : item.category === 'icra' ? 'İcra' : item.category === 'finans' ? 'Finans' : 'Genel'}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
+                        <a href="${item.url}" class="p-1.5 bg-slate-50 hover:bg-navy-900 hover:text-white rounded-lg text-slate-500 text-xs transition-colors"><i class="fa-solid fa-chevron-right"></i></a>
+                        <button onclick="toggleFavorite('${item.id}', '${item.title}')" class="text-gold-500 hover:text-slate-300 p-1.5 transition-colors"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Yıldız Butonlarının Renklerini Güncelle
+        function updateFavButtonStates() {
+            const buttons = document.querySelectorAll('.fav-btn');
+            buttons.forEach(btn => {
+                const id = btn.getAttribute('data-id');
+                const isFavorite = favorites.some(item => item.id === id);
+                if (isFavorite) {
+                    btn.classList.add('text-gold-500');
+                    btn.classList.remove('text-slate-300');
+                } else {
+                    btn.classList.remove('text-gold-500');
+                    btn.classList.add('text-slate-300');
+                }
+            });
+        }
+
+        // Canlı Arama
+        function filterTools() {
+            const query = document.getElementById('tool-search').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.tool-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Kategori Filtreleme
+        let activeCategory = 'all';
+        function filterCategory(cat) {
+            activeCategory = cat;
+            const cards = document.querySelectorAll('.tool-card');
+            const buttons = document.querySelectorAll('.cat-btn');
+            let visibleCount = 0;
+
+            // Buton aktiflik sınıflarını değiştir
+            buttons.forEach(btn => {
+                if (btn.id === `btn-${cat}`) {
+                    btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-navy-900 text-white shadow-sm transition-all";
+                } else {
+                    btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all";
+                }
+            });
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (cat === 'all' || cardCat === cat) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Filtreleri Sıfırla
+        function resetFilters() {
+            document.getElementById('tool-search').value = '';
+            filterCategory('all');
+        }
+
+        // Modalları Kontrol Etme
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Yeni Öneri Gönderme Formu İşlemleri
+        function handleRequestForm(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('req-title').value.trim();
+            closeModal('request-modal');
+            
+            // Kullanıcıya teşekkür bildirimi gösterilir
+            showToast(`"${title}" hesaplama aracı öneriniz başarıyla alındı. Teşekkür ederiz!`, "success");
+            e.target.reset();
+        }
+
+        // Toast Bildirim Sistemi
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-xl shadow-lg text-white text-xs font-semibold flex items-center space-x-2 transition-all duration-300 transform translate-y-2 opacity-0 pointer-events-auto`;
+            
+            if (type === 'success') {
+                toast.classList.add('bg-emerald-600');
+                toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
+            } else if (type === 'info') {
+                toast.classList.add('bg-blue-600');
+                toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> <span>${message}</span>`;
+            } else {
+                toast.classList.add('bg-slate-700');
+                toast.innerHTML = `<span>${message}</span>`;
+            }
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
