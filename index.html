@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div>
-                <button onclick="openModal('request-modal')" class="inline-flex items-center space-x-2 bg-navy-900 hover:bg-navy-800 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm hover:shadow active:scale-95">
+                <button onclick="openModal('request-modal')" class="inline-flex items-center space-x-2 bg-navy-900 hover:bg-navy-800 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all">
                     <i class="fa-solid fa-plus text-xs text-gold-400"></i>
                     <span>Yeni Araç Öner</span>
                 </button>
@@ -97,7 +97,7 @@
                     Hukuki Hesaplamalar Artık <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">Daha Kolay</span>
                 </h2>
                 <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Avukatlar, hukukçular ve vatandaşlar için hazırlanan bu rehber niteliğindeki portal üzerinden, dilediğiniz hesaplama aracına hızlıca ulaşabilir veya sık kullanılanları listenize kaydedebilirsiniz.
+                    Avukatlar, hukukçular ve vatandaşlar için hazırlanan bu rehber niteliğindeki portal üzerinden, dilediğiniz hesaplama aracına hızlıca ulaşabilir veya sık kullanılanları kaydedebilirsiniz.
                 </p>
 
                 <!-- Canlı Arama Çubuğu -->
@@ -106,7 +106,7 @@
                         <i class="fa-solid fa-magnifying-glass text-slate-400 group-focus-within:text-gold-500 transition-colors"></i>
                     </div>
                     <input type="text" id="tool-search" oninput="filterTools()" placeholder="Aramak istediğiniz aracı yazın... (Örn: Kıdem, Faiz)" 
-                        class="block w-full pl-11 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:bg-white focus:text-slate-900 transition-all shadow-lg text-sm sm:text-base">
+                        class="block w-full pl-11 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50">
                 </div>
             </div>
         </section>
@@ -138,14 +138,14 @@
                 <button onclick="filterCategory('is')" id="btn-is" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">İş Hukuku</button>
                 <button onclick="filterCategory('icra')" id="btn-icra" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">İcra & İflas</button>
                 <button onclick="filterCategory('finans')" id="btn-finans" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">Finans & Faiz</button>
-                <button onclick="filterCategory('genel')" id="btn-genel" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">Genel / Diğer</button>
+                <button onclick="filterCategory('genel')" id="btn-genel" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-slate-300 transition-all">Genel</button>
             </div>
         </div>
 
         <!-- Kartlar Grid -->
         <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- İş Hukuku -->
-            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="kıdem tazminatı hesaplama">
+            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="Kıdem Tazminatı">
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -156,7 +156,7 @@
                         </button>
                     </div>
                     <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Kıdem Tazminatı</h4>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal şartlara uygun olarak sona eren personelin hak kazandığı kıdem tazminatı tutarını hizmet süresi ve brüt ücretine göre hesaplar.</p>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal şartlara uygun olarak sona eren personelin hak kazandığı kıdem tazminatı tutarını hizmet süresi ve aylık ortalama ücrete göre hesaplar.</p>
                 </div>
                 <a href="https://justplayerx.github.io/Kidem_Tazminati_Hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
                     <span>Hemen Hesapla</span>
@@ -164,26 +164,26 @@
                 </a>
             </div>
 
-            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="ihbar tazminatı hesaplama">
+            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="İhbar Tazminatı">
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-clock"></i>
                         </span>
-                        <button onclick="toggleFavorite('ihbar-tazminati', 'İhbar Tazminatı', '#', 'is', 'fa-clock')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="ihbar-tazminati">
+                        <button onclick="toggleFavorite('ihbar-tazminati', 'İhbar Tazminatı', 'https://justplayerx.github.io/ihbar_tazminati_hesapla/', 'is', 'fa-clock')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="ihbar-tazminati">
                             <i class="fa-solid fa-star text-lg"></i>
                         </button>
                     </div>
                     <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İhbar Tazminatı</h4>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal bildirim sürelerine uyulmaksızın feshedilen işçi veya işverenin hak kazandığı ihbar tazminatını çalışma süresi ve brüt ücrete göre hesaplar.</p>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal bildirim sürelerine uyulmaksızın feshedilen işçi veya işverenin hak kazandığı ihbar tazminatını hesaplar.</p>
                 </div>
-                <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                <a href="https://justplayerx.github.io/ihbar_tazminati_hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
                     <span>Hemen Hesapla</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
             </div>
 
-            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="yıllık izin ücreti hesaplama">
+            <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="Yıllık İzin Ücreti">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -203,7 +203,7 @@
                 </div>
 
                 <!-- İcra & İflas -->
-                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="icra" data-title="icra dosya kapak hesabı masraf">
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="icra" data-title="İcra Dosya Kapak Hesabı">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -214,7 +214,7 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İcra Dosya Kapak Hesabı</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">İcra müdürlüğündeki dosya borcunun asıl alacak, faiz, harçlar, vekalet ücreti ve masraflar dâhil güncel toplamını çıkarır.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">İcra müdürlüğündeki dosya borcunun asıl alacak, faiz, harçlar, vekalet ücreti ve masraflar dâhil güncel toplam hesabını gösterir.</p>
                     </div>
                     <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
                         <span>Hemen Hesapla</span>
@@ -222,7 +222,7 @@
                     </a>
                 </div>
 
-                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="icra" data-title="icra harçları masraf hesaplama">
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="icra" data-title="İcra Harçları & Masrafları">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -242,7 +242,7 @@
                 </div>
 
                 <!-- Finans & Faiz -->
-                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="finans" data-title="yasal faiz temerrüt faizi hesaplama">
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="finans" data-title="Yasal & Temerrüt Faizi">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -262,7 +262,7 @@
                 </div>
 
                 <!-- Genel / Diğer -->
-                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="asgari vekalet ücreti hesaplama avukat">
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="Asgari Vekalet Ücreti">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -281,7 +281,7 @@
                     </a>
                 </div>
 
-                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="serbest meslek makbuzu smm hesaplama">
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="Serbest Meslek Makbuzu (SMM)">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -292,7 +292,7 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Serbest Meslek Makbuzu (SMM)</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Serbest çalışan avukatların düzenleyeceği makbuzlar için tevkifat (stopaj) ve KDV tutarlarını netten brüte veya brütten nete hesaplar.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Serbest çalışan avukatların düzenleyeceği makbuzlar için tevkifat (stopaj) ve KDV tutarlarını netten brüte veya brüttten nete hesaplar.</p>
                     </div>
                     <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
                         <span>Hemen Hesapla</span>
@@ -300,7 +300,7 @@
                     </a>
                 </div>
 
-                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="arabuluculuk asgari ücret tarifesi hesaplama">
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="genel" data-title="Arabuluculuk Ücreti">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -311,7 +311,7 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Arabuluculuk Ücreti</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Adalet Bakanlığı Arabuluculuk Asgari Ücret Tarifesine göre, anlaşma konusu miktar üzerinden tarafların ödeyeceği payları hesaplar.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Adalet Bakanlığı Arabuluculuk Asgari Ücret Tarifesine göre, anlaşma konusu miktar üzerinden tarafların ödeyeceği ücreti hesaplar.</p>
                     </div>
                     <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
                         <span>Hemen Hesapla</span>
@@ -436,7 +436,7 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
-                        <a href="${item.url}" class="p-1.5 bg-slate-50 hover:bg-navy-900 hover:text-white rounded-lg text-slate-500 text-xs transition-colors"><i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="${item.url}" target="_blank" class="p-1.5 bg-slate-50 hover:bg-navy-900 hover:text-white rounded-lg text-slate-500 text-xs transition-colors"><i class="fa-solid fa-chevron-right"></i></a>
                         <button onclick="toggleFavorite('${item.id}', '${item.title}')" class="text-gold-500 hover:text-slate-300 p-1.5 transition-colors"><i class="fa-solid fa-star"></i></button>
                     </div>
                 `;
