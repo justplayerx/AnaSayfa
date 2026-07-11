@@ -97,7 +97,7 @@
                     Hukuki Hesaplamalar Artık <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">Daha Kolay</span>
                 </h2>
                 <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Avukatlar, hukukçular ve vatandaşlar için hazırlanan bu rehber niteliğindeki portal üzerinden, dilediğiniz hesaplama aracına hızlıca ulaşabilir veya sık kullanılanları kaydedebilirsiniz.
+                    Avukatlar, hukukçular ve vatandaşlar için hazırlanan bu rehber niteliğindeki portal üzerinden, dilediğiniz hesaplama aracına hızlıca ulaşabilir veya sık kullanılanlarınızı favorilere ekleyebilirsiniz.
                 </p>
 
                 <!-- Canlı Arama Çubuğu -->
@@ -106,7 +106,7 @@
                         <i class="fa-solid fa-magnifying-glass text-slate-400 group-focus-within:text-gold-500 transition-colors"></i>
                     </div>
                     <input type="text" id="tool-search" oninput="filterTools()" placeholder="Aramak istediğiniz aracı yazın... (Örn: Kıdem, Faiz)" 
-                        class="block w-full pl-11 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50">
+                        class="block w-full pl-11 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 transition-all">
                 </div>
             </div>
         </section>
@@ -156,9 +156,9 @@
                         </button>
                     </div>
                     <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Kıdem Tazminatı</h4>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal şartlara uygun olarak sona eren personelin hak kazandığı kıdem tazminatı tutarını hizmet süresi ve aylık ortalama ücrete göre hesaplar.</p>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal şartlara uygun olarak sona eren personelin hak kazandığı kıdem tazminatı tutarını hizmet süresi ve son ücrete göre hesaplar.</p>
                 </div>
-                <a href="https://justplayerx.github.io/Kidem_Tazminati_Hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                <a href="https://justplayerx.github.io/Kidem_Tazminati_Hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                     <span>Hemen Hesapla</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
@@ -175,9 +175,9 @@
                         </button>
                     </div>
                     <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İhbar Tazminatı</h4>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal bildirim sürelerine uyulmaksızın feshedilen işçi veya işverenin hak kazandığı ihbar tazminatını hesaplar.</p>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-6">İş sözleşmesi yasal bildirim sürelerine uyulmaksızın feshedilen işçi veya işverenin hak kazandığı ihbar tazminatı tutarını hesaplar.</p>
                 </div>
-                <a href="https://justplayerx.github.io/ihbar_tazminati_hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                <a href="https://justplayerx.github.io/ihbar_tazminati_hesapla/" target="_blank" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                     <span>Hemen Hesapla</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
@@ -196,7 +196,26 @@
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Yıllık İzin Ücreti</h4>
                         <p class="text-slate-500 text-xs leading-relaxed mb-6">Kullanılmayan yıllık izin günlerinin son brüt ücrete göre parasal karşılığını, yasal kesintileriyle birlikte hesaplar.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
+                        <span>Hemen Hesapla</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card group bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300" data-category="is" data-title="İşe Başlatmama ve Boşta Geçen Süre alacağı hesabı">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-navy-900 bg-navy-50 w-12 h-12 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-hourglass-end"></i>
+                            </span>
+                            <button onclick="toggleFavorite('ise-baslatmama', 'İşe Başlatmama ve Boşta Geçen Süre alacağı', '#', 'is', 'fa-hourglass-end')" class="fav-btn text-slate-300 hover:text-gold-500 transition-colors" data-id="ise-baslatmama">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İşe Başlatmama ve Boşta Geçen Süre alacağı</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">İşe başlatılmayan veya boşta geçen süre nedeniyle işçinin hak kazandığı alacak tutarını, yasal şartlara uygun olarak hesaplar.</p>
+                    </div>
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -214,9 +233,9 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İcra Dosya Kapak Hesabı</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">İcra müdürlüğündeki dosya borcunun asıl alacak, faiz, harçlar, vekalet ücreti ve masraflar dâhil güncel toplam hesabını gösterir.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">İcra müdürlüğündeki dosya borcunun asıl alacak, faiz, harçlar, vekalet ücreti ve masraflar dâhil güncel toplam tutarını hesaplar.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -235,7 +254,7 @@
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">İcra Harçları & Masrafları</h4>
                         <p class="text-slate-500 text-xs leading-relaxed mb-6">Takip talebi açılış harçları, peşin harç, başvurma harcı ve posta masraflarını güncel tarifeye göre özetler.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -253,9 +272,9 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Yasal & Temerrüt Faizi</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">3095 sayılı Kanun kapsamında uygulanan yasal faiz, ticari temerrüt faizi ve avans faizi oranlarını dönemsel hesaplar.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">3095 sayılı Kanun kapsamında uygulanan yasal faiz, ticari temerrüt faizi ve avans faizi oranlarını dönemsel hesaplamalarla sunar.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -275,7 +294,7 @@
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Asgari Vekalet Ücreti</h4>
                         <p class="text-slate-500 text-xs leading-relaxed mb-6">Barolar Birliği'nin güncel Asgari Ücret Tarifesine (AAÜT) uygun nispî ve maktu avukatlık ücretlerini hesaplar.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -292,9 +311,9 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Serbest Meslek Makbuzu (SMM)</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Serbest çalışan avukatların düzenleyeceği makbuzlar için tevkifat (stopaj) ve KDV tutarlarını netten brüte veya brüttten nete hesaplar.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Serbest çalışan avukatların düzenleyeceği makbuzlar için tevkifat (stopaj) ve KDV tutarlarını netten brüte veya brütenden nete çevirme işlemleriyle hesaplar.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -311,9 +330,9 @@
                             </button>
                         </div>
                         <h4 class="text-base font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">Arabuluculuk Ücreti</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Adalet Bakanlığı Arabuluculuk Asgari Ücret Tarifesine göre, anlaşma konusu miktar üzerinden tarafların ödeyeceği ücreti hesaplar.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">Adalet Bakanlığı Arabuluculuk Asgari Ücret Tarifesine göre, anlaşma konusu miktar üzerinden tarafların ödeyeceği arabulucu ücretini hesaplar.</p>
                     </div>
-                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all">
+                    <a href="#" class="w-full flex items-center justify-between bg-slate-50 group-hover:bg-navy-900 text-slate-700 group-hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-colors">
                         <span>Hemen Hesapla</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
@@ -436,7 +455,7 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
-                        <a href="${item.url}" target="_blank" class="p-1.5 bg-slate-50 hover:bg-navy-900 hover:text-white rounded-lg text-slate-500 text-xs transition-colors"><i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="${item.url}" target="_blank" class="p-1.5 bg-slate-50 hover:bg-navy-900 hover:text-white rounded-lg text-slate-500 text-xs transition-colors"><i class="fa-solid fa-check"></i></a>
                         <button onclick="toggleFavorite('${item.id}', '${item.title}')" class="text-gold-500 hover:text-slate-300 p-1.5 transition-colors"><i class="fa-solid fa-star"></i></button>
                     </div>
                 `;
